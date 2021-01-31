@@ -5,46 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>El Blog de Raúl</title>
+    <style>
+        body {
+            font-family: system-ui;
+        }
+        summary {
+            cursor: pointer;
+            outline: 0;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
-            <p>Setup</p>
-            <ol>
-                <li>
-                    <a href="#google-chrome">Google Chrome</a>
-                </li>
-                <li>
-                    <a href="#vsc">Visual Studio Code</a>
-                </li>
-                <li>
-                    <a href="#figma">Figma</a>
-                </li>
-                <li>
-                    <a href="#github">GitHub</a>
-                </li>
-            </ol>
-            <p>Conceptos esenciales del Desarrollo Web</p>
-            <ol>
-                <li>
-                    <a href="#html">¿Qué es HTML?</a>
-                </li>
-                <li>
-                    <a href="#etiquetas">Etiquetas</a>
-                </li>
-                <li>
-                    <a href="#dom">DOM</a>
-                </li>
-                <li>
-                    <a href="#semantica">Semántica</a>
-                </li>
-                <li>
-                    <a href="#atributos">Atributos</a>
-                </li>
-                <li>
-                    <a href="#css">¿Qué es CSS?</a>
-                </li>
-            </ol>
+            <details open>
+                <summary>Setup</summary>
+                <ol>
+                    <li>
+                        <a href="#google-chrome">Google Chrome</a>
+                    </li>
+                    <li>
+                        <a href="#vsc">Visual Studio Code</a>
+                    </li>
+                    <li>
+                        <a href="#figma">Figma</a>
+                    </li>
+                    <li>
+                        <a href="#github">GitHub</a>
+                    </li>
+                </ol>
+            </details>
+            <details>
+                <summary>Conceptos esenciales del Desarrollo Web</summary>
+                <ol>
+                    <li>
+                        <a href="#html">¿Qué es HTML?</a>
+                    </li>
+                    <li>
+                        <a href="#etiquetas">Etiquetas</a>
+                    </li>
+                    <li>
+                        <a href="#dom">DOM</a>
+                    </li>
+                    <li>
+                        <a href="#semantica">Semántica</a>
+                    </li>
+                    <li>
+                        <a href="#atributos">Atributos</a>
+                    </li>
+                    <li>
+                        <a href="#css">¿Qué es CSS?</a>
+                    </li>
+                </ol>
+            </details>
         </nav>
     </header>
     <h1>Curso esencial de HTML y CSS</h1>
@@ -107,5 +120,17 @@
         Si tienes alguna pregunta escríbeme a 
         <a href="mailto:me@leonidasesteban.com">me@leonidasesteban.com</a>
     </p>
+
+    <script>
+        $detailsList = document.querySelectorAll('details');
+        $detailsList.forEach($details => {
+            $details.querySelector('summary').addEventListener('click', expand);
+        });
+        function expand() {
+            $detailsList.forEach($details => {
+                $details.removeAttribute('open');
+            });                        
+        }
+    </script>
 </body>
 </html>
